@@ -1,0 +1,7 @@
+C:\Users\dmarrello\Desktop\RoboKey V1.0\RoboKey.exe
+C:\Users\dmarrello\Desktop\RoboKey V1.0\RoboKey.dll
+C:\Users\dmarrello\Desktop\RoboKey V1.0\RoboKey.deps.json
+C:\Users\dmarrello\Desktop\RoboKey V1.0\RoboKey.runtimeconfig.json
+C:\Users\dmarrello\Desktop\RoboKey V1.0\RoboKey.pdb
+C:\Users\dmarrello\Desktop\RoboKey V1.0\H.InputSimulator.dll
+C:\Users\dmarrello\Desktop\RoboKey V1.0\Gma.System.MouseKeyHook.dll

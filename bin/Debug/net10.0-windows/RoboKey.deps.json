@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "RoboKey/1.0.0": {
+        "dependencies": {
+          "H.InputSimulator": "1.5.0",
+          "MouseKeyHook": "5.7.1"
+        },
+        "runtime": {
+          "RoboKey.dll": {}
+        }
+      },
+      "H.InputSimulator/1.5.0": {
+        "runtime": {
+          "lib/net9.0/H.InputSimulator.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.5.0.0"
+          }
+        }
+      },
+      "MouseKeyHook/5.7.1": {
+        "runtime": {
+          "lib/net7.0-windows7.0/Gma.System.MouseKeyHook.dll": {
+            "assemblyVersion": "5.7.1.0",
+            "fileVersion": "5.7.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RoboKey/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "H.InputSimulator/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OCp3w2BsRBQ5b/BlOe6Ev4wXh9b3YgdsxtH56nwrrR0JcxjTxS9T7iYYc38Y7VgLJEZKUua7L6iwAy+EL0XXlw==",
+      "path": "h.inputsimulator/1.5.0",
+      "hashPath": "h.inputsimulator.1.5.0.nupkg.sha512"
+    },
+    "MouseKeyHook/5.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-c0VhB6cbcOpMOcoCQmvPMVqxaH76S4IPHwpbCIY7XKUNimdj9+81rX+Evnu5O53xYgUvdD7g0qmlVeZP2wGCnA==",
+      "path": "mousekeyhook/5.7.1",
+      "hashPath": "mousekeyhook.5.7.1.nupkg.sha512"
+    }
+  }
+}

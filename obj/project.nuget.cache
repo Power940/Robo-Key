@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "0AVedzAZeFc=",
+  "success": true,
+  "projectFilePath": "C:\\Personal\\ProgrammingProjects\\RoboKey\\RoboKey.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dmarrello\\.nuget\\packages\\h.inputsimulator\\1.5.0\\h.inputsimulator.1.5.0.nupkg.sha512",
+    "C:\\Users\\dmarrello\\.nuget\\packages\\mousekeyhook\\5.7.1\\mousekeyhook.5.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
