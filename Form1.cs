@@ -1,19 +1,32 @@
 using Gma.System.MouseKeyHook;
+using System.Text;
 using WindowsInput;
+
+/* 
+ * user visible changes since last commit:
+ * - window name updated from "Form1" -> "RoboKey"
+ * - CLI help button shouldn't slide around when resizing the window anymore
+ *
+ * non user visible changes since last comit:
+ * - removed nonsense try catch blocks in the keybind switcher combo boxes
+ * - made a few more variables readonly and modified clearing systems where needed
+ * - attempted to fix an issue where a glitched CLI program wouldn't stop running unless the main program was closed
+ * |_ if you click force stop enough it seems to work, still kinda broken
+*/
 
 namespace RoboKey
 {
     public partial class Form1 : Form
     {
-        private static InputSimulator inputSim = new();
-        private static IKeyboardMouseEvents keyboardMouseHook;
+        private static readonly InputSimulator inputSim = new();
+        private static readonly IKeyboardMouseEvents keyboardMouseHook = Hook.GlobalEvents();
 
         private static Keys holdKeysKey;
         private static Keys autoClickKeysKey;
         private static Keys runCommandsKey;
 
         private static int autoClickIntervalMS = 1;
-        private static HashSet<string> loggedKeysText = [];
+        private static readonly HashSet<string> loggedKeysText = [];
         private static readonly HashSet<Keys> pressedKeys = [];
         private static readonly List<string> commandList = [];
 
@@ -167,7 +180,6 @@ namespace RoboKey
         public Form1()
         {
             InitializeComponent();
-            keyboardMouseHook = Hook.GlobalEvents();
             keyboardMouseHook.KeyDown += HookOnKeyDown;
             keyboardMouseHook.MouseDown += HookOnMouseDown;
             keyboardMouseHook.KeyUp += HookOnKeyUp;
@@ -193,12 +205,8 @@ namespace RoboKey
         private void HoldKeys_Key_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedKey = (sender as ComboBox).Text;
-            try
-            {
-                holdKeysKey = KeyConverter[selectedKey.ToLower()].key;
-                HoldKeys.Text = "Hold Keys (" + selectedKey + ")";
-            }
-            catch (Exception) { }
+            holdKeysKey = KeyConverter[selectedKey.ToLower()].key;
+            HoldKeys.Text = "Hold Keys (" + selectedKey + ")";
         }
 
 
@@ -243,12 +251,8 @@ namespace RoboKey
         private void AutoClick_Key_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedKey = (sender as ComboBox).Text;
-            try
-            {
-                autoClickKeysKey = KeyConverter[selectedKey.ToLower()].key;
-                AutoClick.Text = "AutoClick Keys (" + selectedKey + ")";
-            }
-            catch (Exception) { }
+            autoClickKeysKey = KeyConverter[selectedKey.ToLower()].key;
+            AutoClick.Text = "AutoClick Keys (" + selectedKey + ")";
         }
 
 
@@ -262,7 +266,7 @@ namespace RoboKey
 
         private void AutoClick_MS_ValueChanged(object sender, EventArgs e)
         {
-            autoClickIntervalMS = (int)(sender as NumericUpDown).Value;
+            autoClickIntervalMS = (int) ((sender as NumericUpDown).Value);
         }
 
 
@@ -296,12 +300,8 @@ namespace RoboKey
         private void CLI_Run_Key_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedKey = (sender as ComboBox).Text;
-            try
-            {
-                runCommandsKey = KeyConverter[selectedKey.ToLower()].key;
-                CLI_Run.Text = "Run Commands (" + selectedKey + ")";
-            }
-            catch (Exception) { }
+            runCommandsKey = KeyConverter[selectedKey.ToLower()].key;
+            CLI_Run.Text = "Run Commands (" + selectedKey + ")";
         }
 
 
@@ -535,11 +535,13 @@ namespace RoboKey
                         }
 
                         commandStep++;
-                        continue;
                     }
-
-                    if (!runCommandsToggleMode)
-                        runCommandsActive = false;
+                    else
+                    {
+                        if (!runCommandsToggleMode)
+                            runCommandsActive = false;
+                        Thread.Sleep(1);
+                    }
                 }
                 Thread.Sleep(1);
             }
@@ -564,7 +566,7 @@ namespace RoboKey
 
         private void ClearLogged_Click(object sender, EventArgs e)
         {
-            loggedKeysText = [];
+            loggedKeysText.Clear();
             AddLogged.Text = string.Empty;
             RemoveLogged.Text = string.Empty;
             LoggedKeys.Text = "";
@@ -671,14 +673,14 @@ namespace RoboKey
         #region Other
         private static string HashSetToStringNewLine(HashSet<string> set)
         {
-            string temp = "";
+            StringBuilder temp = new StringBuilder();
 
             foreach (string s in set)
             {
-                temp += s + Environment.NewLine;
+                temp.AppendLine(s);
             }
 
-            return temp;
+            return temp.ToString();
         }
 
 

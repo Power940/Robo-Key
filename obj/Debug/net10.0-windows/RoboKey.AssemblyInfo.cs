@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RoboKey")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25ea8d2e0dade19624ba2a2a0b51c300af826808")]
 [assembly: System.Reflection.AssemblyProductAttribute("RoboKey")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RoboKey")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

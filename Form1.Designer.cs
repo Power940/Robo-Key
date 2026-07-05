@@ -24,7 +24,7 @@
         // stuff I added to make my life easier copying this stupid array into all the combo boxes
         object[] KeyOptions = new object[] { "LMouse", "MMouse", "RMouse", "Backspace", "Tab", "Enter", "LShift", "RShift", "LControl", "RControl", "LAlt", "RAlt", "CapsLock", "Escape", "Space", "PageUp", "PageDown", "End", "Home", "LeftArrow", "UpArrow", "RightArrow", "DownArrow", "PrintScreen", "Insert", "Delete", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "LeftWindows", "RightWindows", "Keypad0", "Keypad1", "Keypad2", "Keypad3", "Keypad4", "Keypad5", "Keypad6", "Keypad7", "Keypad8", "Keypad9", "Multiply", "Add", "Subtract", "Divide", "Decimal", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24", "NumLock", "ScrollLock", "BrowserBack", "BrowserForward", "BrowserRefresh", "BrowserStop", "BrowserSearch", "BrowserFavorites", "BrowserStart", "VolumeMute", "VolumeDown", "VolumeUp", "NextTrack", "PreviousTrack", "Play/PauseMedia", "StartMail" };
 
-        // add this at the bottom of InitializeComponent before it starts adding everything with an array of all the combo boxes
+        // add this at the bottom of InitializeComponent before it starts adding everything, with an array of all the combo boxes
         // remove this line around he bottom of InitializeComponent to use the GUI editor again
         // dumb WinForms moment, but I'll take anything over making a GUI in python again
         private void AddKeyOptionsToComboBoxes(ComboBox[] comboBoxes)
@@ -292,7 +292,6 @@
             // 
             // CLI_Help
             // 
-            CLI_Help.Anchor = AnchorStyles.Left;
             CLI_Help.BackColor = SystemColors.ControlLight;
             CLI_Help.BackgroundImageLayout = ImageLayout.None;
             CLI_Help.Cursor = Cursors.Hand;
@@ -429,7 +428,7 @@
             Controls.Add(CLI_Run);
             Controls.Add(CLI);
             Name = "Form1";
-            Text = "Form1";
+            Text = "RoboKey";
             ((System.ComponentModel.ISupportInitialize)AutoClick_MS).EndInit();
             ResumeLayout(false);
             PerformLayout();
